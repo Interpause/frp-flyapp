@@ -1,15 +1,21 @@
+app = "mctunnel"
+primary_region = "sin"
+
 kill_signal = "SIGTERM"
-kill_timeout = 120
+kill_timeout = 5
 
 # frp control plane
 # frp KCP server
 [[services]]
 internal_port = 7000
 protocol = "udp"
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
 
 [services.concurrency]
-hard_limit = 25
-soft_limit = 20
+hard_limit = 64
+soft_limit = 64
 type = "connections"
 
 [[services.ports]]
@@ -38,10 +44,13 @@ port = 7000
 [[services]]
 internal_port = 8080
 protocol = "tcp"
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
 
 [services.concurrency]
-hard_limit = 25
-soft_limit = 20
+hard_limit = 64
+soft_limit = 64
 type = "connections"
 
 [[services.ports]]
@@ -62,10 +71,13 @@ timeout = "2s"
 [[services]]
 internal_port = 7001
 protocol = "udp"
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
 
 [services.concurrency]
-hard_limit = 25
-soft_limit = 20
+hard_limit = 64
+soft_limit = 64
 type = "connections"
 
 [[services.ports]]
@@ -76,10 +88,13 @@ port = 7001
 [[services]]
 internal_port = 25565
 protocol = "tcp"
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
 
 [services.concurrency]
-hard_limit = 25
-soft_limit = 20
+hard_limit = 64
+soft_limit = 64
 type = "connections"
 
 [[services.ports]]
